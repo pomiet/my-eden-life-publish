@@ -31,11 +31,14 @@ jobs:
         truncate -s -1 ${{ github.workspace }}/latest/latest.json
 
 
-    - name: Upload artifact
+    - name: Upload artifacts
       uses: actions/upload-pages-artifact@v3
       with:
-          path: './latest'
+          path: '${{ github.workspace }}/latest'
   
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
     
     
 
