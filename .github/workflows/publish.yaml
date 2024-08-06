@@ -11,9 +11,9 @@ jobs:
     steps:
     - uses: actions/download-artifact@v4
       with:
-        name: my-eden-life_*.*
+        name: json
         github-token: ${{ secrets.GITHUB_TOKEN }}
         repository: pomiet/my-eden-life
-        run-id: 10267606663
+        # run-id: 10267606663
 
         
