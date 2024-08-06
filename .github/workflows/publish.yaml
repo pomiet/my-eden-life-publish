@@ -15,5 +15,9 @@ jobs:
         github-token: ${{ secrets.UPLOAD_PAT }}
         repository: pomiet/my-eden-life
         # run-id: 10272720055
+  
+    - name: list artifacts
+      run: ls -lat
+    
 
         
