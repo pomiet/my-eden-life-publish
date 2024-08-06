@@ -1,9 +1,7 @@
-name: Raspberry Pi Build
+name: Deploy latest build
 
-on:
-  push:
-    branches:
-      - master
+on: 
+  workflow_dispatch
 
 jobs:
   upload:
