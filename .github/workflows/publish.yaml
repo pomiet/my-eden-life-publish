@@ -14,6 +14,6 @@ jobs:
         name: json
         github-token: ${{ secrets.UPLOAD_PAT }}
         repository: pomiet/my-eden-life
-        run-id: 10272720055
+        # run-id: 10272720055
 
         
