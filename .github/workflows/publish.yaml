@@ -14,5 +14,6 @@ jobs:
         # name: my-eden-life_0.2.0_aarch64.AppImage.tar.gz
         github-token: ${{ secrets.GITHUB_TOKEN }}
         repository: pomiet/my-eden-life
+        run-id: 10267606663
 
         
