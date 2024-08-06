@@ -14,10 +14,22 @@ jobs:
         name: json
         github-token: ${{ secrets.UPLOAD_PAT }}
         repository: pomiet/my-eden-life
-        run-id: 10272720055
+        run-id: 10273081374
   
     - name: list artifacts
-      run: ls -lat
+      run: cat latest.json
+
+    - uses: actions/download-artifact@v4
+      with:
+        name: appimage
+        github-token: ${{ secrets.UPLOAD_PAT }}
+        repository: pomiet/my-eden-life
+        run-id: 10273081374
+
+    - name: list artifacts
+      run: ls -la
+  
+    
     
 
         
