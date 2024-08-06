@@ -14,6 +14,6 @@ jobs:
         name: json
         github-token: ${{ secrets.GITHUB_TOKEN }}
         repository: pomiet/my-eden-life
-        # run-id: 10267606663
+        run-id: 10272720055
 
         
