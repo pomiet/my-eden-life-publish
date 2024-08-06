@@ -1,0 +1,17 @@
+name: Raspberry Pi Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: my-eden-life_0.2.0_aarch64.AppImage.tar.gz
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        repository: https://github.com/pomiet/my-eden-life
+        # run-id: 123456789
