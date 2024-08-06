@@ -28,7 +28,7 @@ jobs:
         mkdir -p ${{ github.workspace }}/latest
         cp ${{ github.workspace }}/my-eden-life*.AppImage.tar.gz ${{ github.workspace }}/latest
         jq '.platforms["linux-aarch64"].url |= sub("^(https://github.com/pomiet/my-eden-life/releases/download/[^/]+)"; "https://pomiet.github.io/my-eden-life-publish")' ${{ github.workspace }}/latest.json > ${{ github.workspace }}/latest/latest.json
-        truncate -s -1 ${{ github.workspace }}/latest/latest.json"
+        truncate -s -1 ${{ github.workspace }}/latest/latest.json
 
 
     - name: Upload artifact
