@@ -14,20 +14,27 @@ jobs:
         name: json
         github-token: ${{ secrets.UPLOAD_PAT }}
         repository: pomiet/my-eden-life
-        run-id: 10273081374
+        run-id: 10273922505
   
-    - name: list artifacts
-      run: cat latest.json
-
     - uses: actions/download-artifact@v4
       with:
         name: appimage
         github-token: ${{ secrets.UPLOAD_PAT }}
         repository: pomiet/my-eden-life
-        run-id: 10273081374
+        run-id: 10273922505
 
-    - name: list artifacts
-      run: ls -la
+    - name: Prepare artifacts
+      run: |
+        mkdir -p ${{ github.workspace }}/latest
+        cp ${{ github.workspace }}/my-eden-life*.AppImage.tar.gz ${{ github.workspace }}/latest
+        jq '.platforms["linux-aarch64"].url |= sub("^(https://github.com/pomiet/my-eden-life/releases/download/[^/]+)"; "https://pomiet.github.io/my-eden-life-publish")' ${{ github.workspace }}/latest.json > ${{ github.workspace }}/latest/latest.json
+        truncate -s -1 ${{ github.workspace }}/latest/latest.json"
+
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+          path: './latest'
   
     
     
